@@ -25,8 +25,9 @@ async def on_message(message):
             await message.author.add_roles(message.guild.get_role(1042529545204539414))
             await message.delete()
             ##deletes message
-            logembed = discord.Embed(title="Someone has said something that is in your block list, they have been flagged with the flagged role", color=0x845883)
+            logembed = discord.Embed(title="Someone has said something that is in your block list, they have been flagged with the flagged role. They have limited access to the server until you remove it.", color=0x845883)
             logembed.add_field(name="User?", value=message.author, inline=False)
+            logembed.add_field(name="Content?", value=message.content, inline=False)
             ##embed
             await modchannel.send(embed=logembed)
             await message.channel.send("Your message has been deleted due to offensive content, the appropriate people have been contacted.")
